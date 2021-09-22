@@ -72,6 +72,8 @@ WebUI\Port=${WEBUI_PORT}
 WebUI\LocalHostAuth=false
 WebUI\AlternativeUIEnabled=${ALT_WEBUI}
 WebUI\RootFolder=/data/webui
+WebUI\CSRFProtection=false
+WebUI\HostHeaderValidation=false
 EOL
 fi
 
