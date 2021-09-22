@@ -83,10 +83,10 @@ sed -i "s!Connection\\\InetAddress=.*!Connection\\\InetAddress=${WAN_IP}!g" /dat
 sed -i "s!Connection\\\InterfaceListenIPv6=.*!Connection\\\InterfaceListenIPv6=false!g" /data/config/qBittorrent.conf
 sed -i "s!Connection\\\UseUPnP=.*!Connection\\\UseUPnP=false!g" /data/config/qBittorrent.conf
 sed -i "s!Connection\\\InetAddress=.*!Connection\\\InetAddress=${WAN_IP}!g" /data/config/qBittorrent.conf
-sed -i "s!Downloads\\\SavePath=.*!Downloads\\\SavePath=/data/downloads!g" /data/config/qBittorrent.conf
-sed -i "s!Downloads\\\TempPath=.*!Downloads\\\TempPath=/data/temp!g" /data/config/qBittorrent.conf
+sed -i "s!Downloads\\\SavePath=.*!Downloads\\\SavePath=/media/downloads!g" /data/config/qBittorrent.conf
+sed -i "s!Downloads\\\TempPath=.*!Downloads\\\TempPath=/media/downloads/temp!g" /data/config/qBittorrent.conf
 sed -i "s!Downloads\\\TempPathEnabled=.*!Downloads\\\TempPathEnabled=true!g" /data/config/qBittorrent.conf
-sed -i "s!Downloads\\\FinishedTorrentExportDir=.*!Downloads\\\FinishedTorrentExportDir=/data/torrents!g" /data/config/qBittorrent.conf
+sed -i "s!Downloads\\\FinishedTorrentExportDir=.*!Downloads\\\FinishedTorrentExportDir=/media/downloads/torrents!g" /data/config/qBittorrent.conf
 sed -i "s!WebUI\\\Enabled=.*!WebUI\\\Enabled=true!g" /data/config/qBittorrent.conf
 sed -i "s!WebUI\\\Address=.*!WebUI\\\Address=0\.0\.0\.0!g" /data/config/qBittorrent.conf
 sed -i "s!WebUI\\\Port=.*!WebUI\\\Port=${WEBUI_PORT}!g" /data/config/qBittorrent.conf
@@ -101,7 +101,10 @@ chown qbittorrent:qbittorrent /data \
   /data/temp \
   /data/torrents \
   /data/watch \
-  /data/webui
+  /data/webui \
+  /media/downloads \
+  /media/downloads/torrents \
+  /media/downloads/temp
 chown -R qbittorrent:qbittorrent "${QBITTORRENT_HOME}" /var/log/qbittorrent
 
 exec yasu qbittorrent:qbittorrent "$@"
